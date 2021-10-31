@@ -1,34 +1,25 @@
-import React from "react";
-import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import { StatusBar } from 'expo-status-bar';
+import React, {useEffect, useState} from "react";
+import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { Entypo } from '@expo/vector-icons';
+import axios from "axios";
 
-export function Main(params) {
-    const navigation = params.navigation;
+export function Main({navigation}) {
+
+  const [ , setProducts] = useState();
+
+useEffect(() => {
+  axios.get("https://fakestoreapi.com/products").then(data => console.log(data)).catch(err => alert(err.message))
+}, [])
+
     return (
-      <View style={{flex:1}}>
-        <view style={{flex:1, flexDirection:'row-reverse'}}>
-        <TouchableOpacity style={{flexDirection:'row-reverse'}}> 
-          <Entypo name="shopping-cart" size={24} color="black" />
-          </TouchableOpacity>
-        </view>
-        
-        <view style={{padding:200}}>
-          <TouchableOpacity style={{padding:20,backgroundColor:'black',borderRadius:20}}>
-            <text
-            onPress={() => {
-              navigation.navigate("cart");
-            }}
-             style={{paddingLeft:400,color:'whitesmoke',fontWeight:'Bold'}}>Checkout</text>
-          </TouchableOpacity>
-        </view>
-        <view>
-       
-        
-        </view>
+    <View style={{flex:1}}>
+          <View style={{flexDirection:'row', flexBasis:'20%',justifyContent:"space-between",alignItems:'center', paddingHorizontal:20}}>
+            <Text style={{fontWeight:'bold', fontSize: 18}}>Products</Text>
+            <TouchableOpacity  style={{}}> 
+              <Entypo name="shopping-cart" size={24} color="black" />
+            </TouchableOpacity>
+          </View>
       </View>
-      
     );  
 }
 

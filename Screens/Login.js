@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import { StatusBar } from 'expo-status-bar';
 
 
 export function Login(params) {

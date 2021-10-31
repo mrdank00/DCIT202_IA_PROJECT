@@ -1,14 +1,14 @@
-import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import { StatusBar } from 'expo-status-bar';
-import { Entypo } from '@expo/vector-icons';
-import React from 'react';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
-export function cart(params) {
-    const navigation = params.navigation;
+const Cart = () => {
     return (
         <View>
-            <Text>Hello world</Text>
+            <Text>Cart Name</Text>
         </View>
-    );
+    )
 }
+
+export default Cart
+
+const styles = StyleSheet.create({})
