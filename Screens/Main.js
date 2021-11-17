@@ -6,6 +6,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Feather,
+  TextInput,
 } from "react-native";
 import { Entypo, FontAwesome } from "@expo/vector-icons";
 import axios from "axios";
@@ -64,6 +66,14 @@ export function Main({ navigation }) {
         </TouchableOpacity>
         <View></View>
       </View>
+      <View style={{ marginTop: 30, marginBottom: 10, flexDirection: "row" }}>
+        <View style={styles.searchContainer}>
+          <TextInput placeholder="Search" style={styles.input} />
+        </View>
+        <View style={styles.sortBtn}>
+          <FontAwesome name="sort" size={30} color={"White"} />
+        </View>
+      </View>
       <ScrollView style={{ flexBasis: "85%" }}>
         {products &&
           products.map((product) => (
@@ -96,5 +106,28 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flex: 1,
     flexDirection: "row",
+  },
+  searchContainer: {
+    height: 50,
+    backgroundColor: "#FFF",
+    borderRadius: 10,
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  input: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#333",
+    flex: 1,
+  },
+  sortBtn: {
+    marginLeft: 10,
+    height: 50,
+    width: 50,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
   },
 });

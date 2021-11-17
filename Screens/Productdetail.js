@@ -39,45 +39,28 @@ function ProductDetail({ route, navigation }) {
       style={{
         flex: 1,
         paddingHorizontal: 20,
-        backgroundColor: colors.dark,
+        backgroundColor: "White",
       }}
     >
       <View style={style.header}>
         <View>
           <Text
             style={{
-              fontSize: 38,
+              fontSize: 30,
               fontWeight: "bold",
-              color: colors.white,
-              textShadowColor: colors.dark,
-              textShadowRadius: 10,
+              color: "White",
             }}
           >
-            Drip House
+            Product details
           </Text>
         </View>
         <Entypo
           name="shopping-cart"
-          size={40}
+          size={30}
           style={{ marginTop: 5 }}
           color="black"
           onPress={() => navigation.navigate("Cart")}
         />
-      </View>
-
-      <View style={{ marginTop: 30, marginBottom: 10, flexDirection: "row" }}>
-        <View style={style.searchContainer}>
-          <Feather
-            name="search"
-            size={25}
-            color="black"
-            style={{ marginLeft: 20, marginRight: 10 }}
-          />
-          <TextInput placeholder="Search" style={style.input} />
-        </View>
-        <View style={style.sortBtn}>
-          <FontAwesome name="sort" size={30} color={colors.white} />
-        </View>
       </View>
 
       <FlatList
@@ -107,14 +90,7 @@ const style = StyleSheet.create({
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
-  searchContainer: {
-    height: 50,
-    backgroundColor: "#FFF",
-    borderRadius: 10,
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-  },
+
   input: {
     fontSize: 18,
     fontWeight: "bold",

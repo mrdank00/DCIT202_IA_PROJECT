@@ -13,11 +13,11 @@ const Product = ({ submit, title, id, price, image }) => {
   return (
     <TouchableOpacity onPress={submit}>
       <View>
-        <TouchableOpacity>
+        <View>
           <Image style={styles.imagestyle} source={{ uri: image }}></Image>
           <Text style={{ fontWeight: "bold" }}>{title}</Text>
           <Text>${price}</Text>
-        </TouchableOpacity>
+        </View>
       </View>
     </TouchableOpacity>
   );
