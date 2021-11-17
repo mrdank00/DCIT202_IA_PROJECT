@@ -12,8 +12,9 @@ import { Entypo, Feather, FontAwesome } from "@expo/vector-icons";
 import { useDispatch } from "react-redux";
 
 import { addCart } from "../actions/index";
+import Product from "../components/Product";
 
-export function ProductsList({ route, navigation }) {
+function ProductDetail({ route, navigation }) {
   const { id, retailPrice, title, media, year, brand, gender } = route.params;
   const [size, setSize] = useState();
   const [color, setColor] = useState();
@@ -108,7 +109,7 @@ const style = StyleSheet.create({
   },
   searchContainer: {
     height: 50,
-    backgroundColor: colors.light,
+    backgroundColor: "#FFF",
     borderRadius: 10,
     flex: 1,
     flexDirection: "row",
@@ -117,14 +118,14 @@ const style = StyleSheet.create({
   input: {
     fontSize: 18,
     fontWeight: "bold",
-    color: colors.dark,
+    color: "#333",
     flex: 1,
   },
   sortBtn: {
     marginLeft: 10,
     height: 50,
     width: 50,
-    backgroundColor: colors.green,
+    backgroundColor: "lightgreen",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
@@ -141,18 +142,19 @@ const style = StyleSheet.create({
     fontWeight: "bold",
   },
   categoryTextSelected: {
-    color: colors.green,
+    color: "lightgreen",
     paddingBottom: 5,
     borderBottomWidth: 2,
-    borderColor: colors.green,
+    borderColor: "lightgreen",
   },
   card: {
     height: 225,
-    backgroundColor: colors.light,
-    width,
+    backgroundColor: "#fff",
     marginHorizontal: 2,
     borderRadius: 10,
     marginBottom: 20,
     padding: 15,
   },
 });
+
+export default ProductDetail;

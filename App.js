@@ -12,7 +12,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
 import reducers from "./redux";
-import ProductDetails from "./screens/Productdetail";
+import ProductDetail from "./screens/Productdetail";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -23,19 +23,18 @@ export default function App() {
   const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Login"
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name="Login" component={Login}></Stack.Screen>
-        <Stack.Screen name="Products" component={Main}></Stack.Screen>
-        <Stack.Screen name="Cart" component={Cart}></Stack.Screen>
-        <Stack.Screen
-          name="ProductDetails"
-          component={ProductDetails}
-        ></Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Products"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Products" component={Main} />
+          <Stack.Screen name="Cart" component={Cart} />
+          <Stack.Screen name="ProductDetail" component={ProductDetail} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }

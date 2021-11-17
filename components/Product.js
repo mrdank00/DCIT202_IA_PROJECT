@@ -9,21 +9,19 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-const Product = ({ title, id, price, image }) => {
+const Product = ({ submit, title, id, price, image }) => {
   return (
-    <View>
+    <TouchableOpacity onPress={submit}>
       <View>
         <TouchableOpacity>
-          <Image source={image}></Image>
+          <Image style={styles.imagestyle} source={{ uri: image }}></Image>
           <Text style={{ fontWeight: "bold" }}>{title}</Text>
           <Text>${price}</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
-
-export default Product;
 
 const styles = StyleSheet.create({
   contentContainer: {
@@ -32,7 +30,10 @@ const styles = StyleSheet.create({
   imagestyle: {
     borderRadius: 20,
     marginBottom: 60,
-    width: 200,
+    width: 400,
     height: 200,
+    padding: 20,
   },
 });
+
+export default Product;

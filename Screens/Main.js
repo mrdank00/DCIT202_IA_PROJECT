@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Entypo, FontAwesome } from "@expo/vector-icons";
 import axios from "axios";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import Product from "../components/Product";
 
@@ -34,7 +35,7 @@ export function Main({ navigation }) {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View
         style={{
           flexDirection: "row",
@@ -44,25 +45,31 @@ export function Main({ navigation }) {
           paddingHorizontal: 20,
         }}
       >
-        <Text style={{ fontWeight: "bold", fontSize: 18, color: "black" }}>
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 18,
+            color: "black",
+            paddingHorizontal: 20,
+            justifyContent: "space-evenly",
+          }}
+        >
           Products
         </Text>
         <TouchableOpacity
           onPress={() => navigation.navigate("Cart")}
-          style={{}}
+          style={{ paddingHorizontal: 20 }}
         >
           <Entypo name="shopping-cart" size={24} color="black" />
         </TouchableOpacity>
         <View></View>
       </View>
-      <ScrollView style={{ flexDirection: "row" }}>
+      <ScrollView style={{ flexBasis: "85%" }}>
         {products &&
           products.map((product) => (
             <Product
               submit={() =>
-                navigation.navigate("ProductDetails", {
-                  ...product,
-                }) && products.length
+                navigation.navigate("ProductDetail", { ...product })
               }
               key={product.id}
               id={product.id}
@@ -72,7 +79,7 @@ export function Main({ navigation }) {
             />
           ))}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
