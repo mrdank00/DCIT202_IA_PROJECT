@@ -1,14 +1,28 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { useSelector } from "react-redux";
+import CartItems from "../components/CartItems";
 
 const Cart = () => {
-    return (
-        <View>
-            <Text>Cart Name</Text>
-        </View>
-    )
-}
+  const cart = useSelector((state) => state.cart);
 
-export default Cart
+  return (
+    <View>
+      {cart &&
+        cart.map((car) => (
+          <CartItems
+            id={car.id}
+            key={uuid.v4()}
+            image={car.thumbUrl}
+            price={car.retailPrice}
+            title={car.title}
+            quant={car.quantity}
+          />
+        ))}
+    </View>
+  );
+};
 
-const styles = StyleSheet.create({})
+export default Cart;
+
+const styles = StyleSheet.create({});

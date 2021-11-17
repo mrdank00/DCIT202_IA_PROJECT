@@ -24,11 +24,11 @@ export function Login(params) {
           height: 200,
         }}
         source={{
-          uri: "https://th.bing.com/th/id/R.535c3ebdb9ffb6f78a4147ab1b86c571?rik=DOOhJ8oJi4i8EQ&riu=http%3a%2f%2fwww.bikesdirect.com%2fproducts%2fgravity%2fimages%2fgrav_swift_silver_2100.jpg&ehk=oEdZ8ue9uEsAU9M4eNYQz3l5fl%2bxVwKwp88Dh0zFzf0%3d&risl=&pid=ImgRaw&r=0",
+          uri: "https://th.bing.com/th/id/OIP.4FvZFCRWNilKcwQLcWpa0wHaHa?pid=ImgDet&w=512&h=512&rs=1",
         }}
       />
       <Text style={{ fontSize: 30, color: "grey" }}>Welcome to</Text>
-      <Text style={{ fontSize: 40, fontWeight: "bold" }}>Power Bike Shop</Text>
+      <Text style={{ fontSize: 40, fontWeight: "bold" }}>All needs Shop</Text>
       {<View style={{}}>
         <TextInput
           style={{
@@ -71,7 +71,6 @@ export function Login(params) {
           backgroundColor: "black",
         }}
       >
-        <AntDesign name="apple1" size={24} color="white" />
         <Text style={{ paddingLeft: 10, color: "white" }}>Login</Text>
       </TouchableOpacity>
     </View>
