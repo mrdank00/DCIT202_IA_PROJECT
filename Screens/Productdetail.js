@@ -6,6 +6,8 @@ import {
   TextInput,
   FlatList,
   StyleSheet,
+  Image,
+  TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Entypo, Feather, FontAwesome } from "@expo/vector-icons";
@@ -23,14 +25,6 @@ function ProductDetail({ route, navigation }) {
   const addItemToCart = () => {
     dispatch(addCart({}));
   };
-
-  function renderProduct({ item: product }) {
-    return (
-      <SafeAreaView>
-        {/* Stucture and styles for the product details */}
-      </SafeAreaView>
-    );
-  }
 
   const [products, setProducts] = useState([]);
 
@@ -62,19 +56,31 @@ function ProductDetail({ route, navigation }) {
           onPress={() => navigation.navigate("Cart")}
         />
       </View>
+      <View style={{ flexBasis: "70%", justifyContent: "space-around" }}>
+        <Image
+          style={style.imagestyle}
+          source={{ uri: media.imageUrl }}
+        ></Image>
+        <Text style={style.categoryText}>{title}</Text>
+        <Text style={style.categoryText}>${retailPrice}</Text>
+      </View>
 
-      <FlatList
-        columnWrapperStyle={{ justifyContent: "space-between" }}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          marginTop: 10,
-          paddingBottom: 50,
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Products");
         }}
-        numColumns={2}
-        keyExtractor={(item) => item.id.toString()}
-        data={products}
-        renderItem={renderProduct}
-      />
+        style={{
+          padding: 15,
+          paddingHorizontal: 80,
+          marginTop: 10,
+          alignItems: "center",
+          borderRadius: 10,
+          flexDirection: "row",
+          backgroundColor: "red",
+        }}
+      >
+        <Text style={{ paddingLeft: 10, color: "white" }}>Add To Cart</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -113,7 +119,7 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
   },
   categoryText: {
-    fontSize: 16,
+    fontSize: 30,
     color: "grey",
     fontWeight: "bold",
   },
@@ -130,6 +136,15 @@ const style = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 20,
     padding: 15,
+  },
+  imagestyle: {
+    borderRadius: 20,
+    marginRight: 80,
+    width: 400,
+    height: 200,
+    padding: 20,
+    flexBasis: "60%",
+    justifyContent: "center",
   },
 });
 

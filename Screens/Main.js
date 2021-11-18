@@ -14,6 +14,7 @@ import axios from "axios";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import Product from "../components/Product";
+import { apiProducts } from "../api";
 
 export function Main({ navigation }) {
   const [products, setProducts] = useState();
@@ -29,11 +30,12 @@ export function Main({ navigation }) {
       },
     };
 
-    //setting the products data back from the api to the products state
+    // setting the products data back from the api to the products state
     axios
       .request(options)
       .then((data) => setProducts(data.data.results))
       .catch((err) => alert(err.message));
+    // setProducts(apiProducts);
   }, []);
 
   return (
